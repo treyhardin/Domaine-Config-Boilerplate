@@ -1,60 +1,68 @@
 /** @type {import('tailwindcss').Config} */
 
+const getFluidSize = (desktopSize, mobileSize) => {
+  const mobileViewport = 390;
+  const desktopViewport = 1440;
+  const viewportRange = desktopViewport - mobileViewport;
+  const sizeRange = desktopSize - mobileSize;
+  return `max( ${mobileSize}px, calc( ${sizeRange} * (100vw - ${mobileSize}px) / ${viewportRange} + ${mobileSize}px) )`
+}
+
 module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
-    fontSize: {
-      'h1': ['var(--font-size)', {
+    fontSize: ({theme}) => ({
+      'h1': [`${getFluidSize(86, 46)}`, { 
+        lineHeight: '1em', 
+        letterSpacing: '-0.05em',
+        fontWeight: 600, 
+      }],
+      'h2': [`${getFluidSize(64, 40)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 600,
       }],
-      'h2': ['var(--font-size)', {
+      'h3': [`${getFluidSize(46, 32)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 600,
       }],
-      'h3': ['var(--font-size)', {
+      'h4': [`${getFluidSize(34, 26)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 600,
       }],
-      'h4': ['var(--font-size)', {
+      'h5': [`${getFluidSize(26, 20)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 600,
       }],
-      'h5': ['var(--font-size)', {
+      'h6': [`${getFluidSize(20, 16)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 600,
       }],
-      'h6': ['var(--font-size)', {
+      'pullquote': [`${getFluidSize(86, 46)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 600,
       }],
-      'pullquote': ['var(--font-size)', {
-        lineHeight: '1em',
-        letterSpacing: '-0.05em',
-        fontWeight: 600,
-      }],
-      'body': ['var(--font-size)', {
+      'body': [`${getFluidSize(16, 14)}`, {
         lineHeight: '1em',
         letterSpacing: '-0.05em',
         fontWeight: 400,
       }],
-      'caption': ['var(--font-size)', {
+      'caption': [`${getFluidSize(14, 14)}`, {
         lineHeight: '1em',
         letterSpacing: '0em',
         fontWeight: 400,
       }],
-      'utility': ['var(--font-size)', {
+      'utility': [`${getFluidSize(12, 12)}`, {
         lineHeight: '1em',
         letterSpacing: '0.1em',
         fontWeight: 400,
       }],
-    },
+    }),
     fontFamily: {
       'mono': ['"Suisse Intl Mono"', 'Helvetica', 'Arial', 'system-ui', 'sans-serif'],
       'primary': ['"Suisse Intl"', 'Helvetica', 'Arial', 'system-ui', 'sans-serif'],
@@ -62,16 +70,16 @@ module.exports = {
     },
     spacing: { 
       none: '0em',
-      '3xs': '5px',
-      '2xs': '10px',
-      'xs': '15px',
-      'sm': '30px',
-      'md': '40px',
-      'lg': '60px',
-      'xl': '80px',
-      '2xl': '120px',
-      '3xl': '160px',
-      'page-margin': '120px',
+      '3xs': `${getFluidSize(5, 5)}`,
+      '2xs': `${getFluidSize(10, 10)}`,
+      'xs': `${getFluidSize(15, 15)}`,
+      'sm': `${getFluidSize(30, 20)}`,
+      'md': `${getFluidSize(40, 30)}`,
+      'lg': `${getFluidSize(60, 40)}`,
+      'xl': `${getFluidSize(80, 60)}`,
+      '2xl': `${getFluidSize(120, 80)}`,
+      '3xl': `${getFluidSize(160, 100)}`,
+      'page-margin': `${getFluidSize(60, 20)}`,
     },
     primitiveColors: {
       darkest: '#000000',

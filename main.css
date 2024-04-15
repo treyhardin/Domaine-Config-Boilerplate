@@ -516,27 +516,9 @@ video {
   font-style: italic;
 }
 
-/* * {
-    @apply box-border;
-  } */
-
-* {
-  --viewport-desktop: 1440;
-  /* The width of the desktop designs */
-  --viewport-mobile: 375;
-  /* The width of the mobile designs */
-  /* The range between mobile and desktop viewport sizes */
-  --viewport-range: calc( var(--viewport-desktop) - var(--viewport-mobile) );
-  /* Calculate how wide the current viewport is, relative to the mobile and desktop viewport sizes */
-  --viewport-percent: calc( (100vw - (var(--viewport-mobile) * 1px)) / var(--viewport-range) );
-  --font-size-range: calc( var(--size-desktop) - var(--size-mobile) );
-  --fluid-font-size: calc( var(--font-size-range) * var(--viewport-percent) + (var(--size-mobile)) * 1px );
-  --font-size: max( var(--fluid-font-size), calc(var(--size-mobile) * 1px) );
-}
-
 html {
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 14px, calc( 2 * (100vw - 14px) / 1050 + 14px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 400;
@@ -545,89 +527,71 @@ html {
 }
 
 h1 {
-  --size-desktop: 86;
-  --size-mobile: 46;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 46px, calc( 40 * (100vw - 46px) / 1050 + 46px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 h2 {
-  --size-desktop: 64;
-  --size-mobile: 40;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 40px, calc( 24 * (100vw - 40px) / 1050 + 40px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 h3 {
-  --size-desktop: 46;
-  --size-mobile: 32;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 32px, calc( 14 * (100vw - 32px) / 1050 + 32px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 h4 {
-  --size-desktop: 34;
-  --size-mobile: 26;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 26px, calc( 8 * (100vw - 26px) / 1050 + 26px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 h5 {
-  --size-desktop: 26;
-  --size-mobile: 20;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 20px, calc( 6 * (100vw - 20px) / 1050 + 20px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 h6 {
-  --size-desktop: 20;
-  --size-mobile: 16;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 16px, calc( 4 * (100vw - 16px) / 1050 + 16px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
 
 p {
-  --size-desktop: 14;
-  --size-mobile: 14;
   font-family: "Suisse Intl", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 14px, calc( 2 * (100vw - 14px) / 1050 + 14px) );
   line-height: 1em;
   letter-spacing: -0.05em;
   font-weight: 400;
 }
 
 .caption {
-  --size-desktop: 12;
-  --size-mobile: 12;
-  font-size: var(--font-size);
+  font-size: max( 14px, calc( 0 * (100vw - 14px) / 1050 + 14px) );
   line-height: 1em;
   letter-spacing: 0em;
   font-weight: 400;
 }
 
 .utility {
-  --size-desktop: 12;
-  --size-mobile: 12;
   font-family: "Suisse Intl Mono", Helvetica, Arial, system-ui, sans-serif;
-  font-size: var(--font-size);
+  font-size: max( 12px, calc( 0 * (100vw - 12px) / 1050 + 12px) );
   line-height: 1em;
   letter-spacing: 0.1em;
   font-weight: 400;
@@ -777,6 +741,8 @@ p {
 }
 
 .spacing-token {
+  flex-shrink: 0;
+  flex-grow: 0;
   border-radius: 0.2rem;
   border-width: 2px;
   --tw-border-opacity: 1;
@@ -785,7 +751,7 @@ p {
 
 .color-token {
   flex-basis: 33.333333%;
-  padding: 30px;
+  padding: max( 20px, calc( 10 * (100vw - 20px) / 1050 + 20px) );
 }
 
 .sr-only {
@@ -1016,48 +982,48 @@ p {
 }
 
 .size-2xl {
-  width: 120px;
-  height: 120px;
+  width: max( 80px, calc( 40 * (100vw - 80px) / 1050 + 80px) );
+  height: max( 80px, calc( 40 * (100vw - 80px) / 1050 + 80px) );
 }
 
 .size-2xs {
-  width: 10px;
-  height: 10px;
+  width: max( 10px, calc( 0 * (100vw - 10px) / 1050 + 10px) );
+  height: max( 10px, calc( 0 * (100vw - 10px) / 1050 + 10px) );
 }
 
 .size-3xl {
-  width: 160px;
-  height: 160px;
+  width: max( 100px, calc( 60 * (100vw - 100px) / 1050 + 100px) );
+  height: max( 100px, calc( 60 * (100vw - 100px) / 1050 + 100px) );
 }
 
 .size-3xs {
-  width: 5px;
-  height: 5px;
+  width: max( 5px, calc( 0 * (100vw - 5px) / 1050 + 5px) );
+  height: max( 5px, calc( 0 * (100vw - 5px) / 1050 + 5px) );
 }
 
 .size-lg {
-  width: 60px;
-  height: 60px;
+  width: max( 40px, calc( 20 * (100vw - 40px) / 1050 + 40px) );
+  height: max( 40px, calc( 20 * (100vw - 40px) / 1050 + 40px) );
 }
 
 .size-md {
-  width: 40px;
-  height: 40px;
+  width: max( 30px, calc( 10 * (100vw - 30px) / 1050 + 30px) );
+  height: max( 30px, calc( 10 * (100vw - 30px) / 1050 + 30px) );
 }
 
 .size-sm {
-  width: 30px;
-  height: 30px;
+  width: max( 20px, calc( 10 * (100vw - 20px) / 1050 + 20px) );
+  height: max( 20px, calc( 10 * (100vw - 20px) / 1050 + 20px) );
 }
 
 .size-xl {
-  width: 80px;
-  height: 80px;
+  width: max( 60px, calc( 20 * (100vw - 60px) / 1050 + 60px) );
+  height: max( 60px, calc( 20 * (100vw - 60px) / 1050 + 60px) );
 }
 
 .size-xs {
-  width: 15px;
-  height: 15px;
+  width: max( 15px, calc( 0 * (100vw - 15px) / 1050 + 15px) );
+  height: max( 15px, calc( 0 * (100vw - 15px) / 1050 + 15px) );
 }
 
 .w-\[this-is\\\\\] {
@@ -1591,7 +1557,7 @@ p {
 }
 
 .gap-2xs {
-  gap: 10px;
+  gap: max( 10px, calc( 0 * (100vw - 10px) / 1050 + 10px) );
 }
 
 .space-y-reverse > :not([hidden]) ~ :not([hidden]) {
@@ -2129,13 +2095,13 @@ p {
 }
 
 .px-page-margin {
-  padding-left: 120px;
-  padding-right: 120px;
+  padding-left: max( 20px, calc( 40 * (100vw - 20px) / 1050 + 20px) );
+  padding-right: max( 20px, calc( 40 * (100vw - 20px) / 1050 + 20px) );
 }
 
 .py-lg {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: max( 40px, calc( 20 * (100vw - 40px) / 1050 + 40px) );
+  padding-bottom: max( 40px, calc( 20 * (100vw - 40px) / 1050 + 40px) );
 }
 
 .text-left {
@@ -2720,6 +2686,10 @@ p {
 }
 
 @media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
   .sm\:underline {
     text-decoration-line: underline;
   }

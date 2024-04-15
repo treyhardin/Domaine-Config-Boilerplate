@@ -55,77 +55,43 @@
     font-style: italic;
   }
 
-  /* * {
-    @apply box-border;
-  } */
-
-  * {
-    --viewport-desktop: 1440; /* The width of the desktop designs */
-    --viewport-mobile: 375; /* The width of the mobile designs */
-    /* The range between mobile and desktop viewport sizes */
-    --viewport-range: calc( var(--viewport-desktop) - var(--viewport-mobile) ); 
-    /* Calculate how wide the current viewport is, relative to the mobile and desktop viewport sizes */
-    --viewport-percent: calc( (100vw - (var(--viewport-mobile) * 1px)) / var(--viewport-range) );
-    --font-size-range: calc( var(--size-desktop) - var(--size-mobile) ); 
-    --fluid-font-size: calc( var(--font-size-range) * var(--viewport-percent) + (var(--size-mobile)) * 1px );
-    --font-size: max( var(--fluid-font-size), calc(var(--size-mobile) * 1px) );
-  }
-
   html {
     @apply font-primary text-body antialiased;
   }
 
   h1 {
-    --size-desktop: 86;
-    --size-mobile: 46;
     @apply text-h1 font-secondary;
   }
 
   h2 {
-    --size-desktop: 64;
-    --size-mobile: 40;
     @apply text-h2 font-secondary;
   }
 
   h3 {
-    --size-desktop: 46;
-    --size-mobile: 32;
     @apply text-h3 font-secondary;
   }
 
   h4 {
-    --size-desktop: 34;
-    --size-mobile: 26;
     @apply text-h4 font-secondary;
   }
 
   h5 {
-    --size-desktop: 26;
-    --size-mobile: 20;
     @apply text-h5 font-secondary;
   }
 
   h6 {
-    --size-desktop: 20;
-    --size-mobile: 16;
     @apply text-h6 font-secondary;
   }
 
   p {
-    --size-desktop: 14;
-    --size-mobile: 14;
     @apply font-primary text-body;
   }
 
   .caption {
-    --size-desktop: 12;
-    --size-mobile: 12;
     @apply text-caption;
   }
 
   .utility {
-    --size-desktop: 12;
-    --size-mobile: 12;
     @apply text-utility font-mono uppercase;
   }
 
@@ -134,7 +100,7 @@
 
 @layer components {
   .spacing-token {
-    @apply border-2 border-border rounded-sm;
+    @apply border-2 border-border rounded-sm flex-shrink-0 flex-grow-0;
   }
 
   .color-token {
